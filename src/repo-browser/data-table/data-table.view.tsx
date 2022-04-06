@@ -1,9 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { pipe } from "fp-ts/pipeable";
-import * as TE from "fp-ts/TaskEither";
+import Stack from "@mui/material/Stack";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import React from "react";
 import { Repository } from "../repo-browser.types";
-import Stack from '@mui/material/Stack';
 
 const columns: GridColDef[] = [
   {
@@ -28,13 +26,13 @@ interface DataTableProps {
   isLoading?: boolean;
 }
 
-const CustomTableOverlay: (text: string) => FC = (text) => () => (
+const CustomTableOverlay: (text: string) => React.FC = (text) => () => (
   <Stack height="100%" alignItems="center" justifyContent="center">
     {text}
   </Stack>
 )
 
-const DataTable: FC<DataTableProps> = ({ data, isLoading }) => {
+const DataTable: React.FC<DataTableProps> = ({ data, isLoading }) => {
   return (
     <div style={{ height: 400, width: '100%', opacity: isLoading ? 0.5 : 1 }}>
       <DataGrid

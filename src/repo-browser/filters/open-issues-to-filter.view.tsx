@@ -19,7 +19,7 @@ export const OpenIssuesToFilter: FC<OpenIssuesToFilterProps> = ({ openIssuesFrom
     const isValid = isEmpty || (isValidNumber && isValidWithOpenIssuesTo);
     setIsValid(isValid);
     setOpenIssuesTo(!isValid || isEmpty ? undefined : parsedValue);
-  }, [value, openIssuesFrom]);
+  }, [value, openIssuesFrom, setOpenIssuesTo]);
   return (
     <TextField
       error={!isValid}

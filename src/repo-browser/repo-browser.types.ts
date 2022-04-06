@@ -50,7 +50,8 @@ export interface RepoBrowserStore {
   selectedOrganization?: Organization;
   setSelectedOrganization: (v?: Organization) => void;
   repositoriesLoading: boolean;
-  setRepositoriesLoading: (v: boolean) => void;
+  repositoriesLoadingError?: string;
+  setRepositoriesLoading: (v: { isLoading: boolean; error?: string }) => void;
   repositories: ReadonlyArray<Repository>;
   setRepositories: (v: ReadonlyArray<Repository>) => void;
   repositoryFilters: RepositoryFilters;

@@ -19,9 +19,11 @@ export class RepoBrowserStore implements RepoBrowserStoreInterface {
   };
 
   public repositoriesLoading: boolean = false;
+  public repositoriesLoadingError?: string;
 
-  public setRepositoriesLoading = (value: boolean) => {
-    this.repositoriesLoading = value;
+  public setRepositoriesLoading = ({ isLoading, error }: { isLoading: boolean; error?: string }) => {
+    this.repositoriesLoading = isLoading;
+    this.repositoriesLoadingError = error;
   };
 
   public repositories: ReadonlyArray<Repository> = [];
